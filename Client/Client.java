@@ -7,16 +7,19 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-    private static final String IP = "127.0.0.1";
+    private static String IP = "127.0.0.1";
     private static final int PORT = 2403;
 
     public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        // System.out.println("Enter the Server IP");
+        // IP = sc.nextLine();
         Socket socket = new Socket(IP, PORT);
+        System.out.println(socket.isConnected() + " " + socket.getPort());
 
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         // BufferedReader inComing = new BufferedReader(new
         // InputStreamReader(socket.getInputStream()));
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("Connected to server Send your Message");
 
